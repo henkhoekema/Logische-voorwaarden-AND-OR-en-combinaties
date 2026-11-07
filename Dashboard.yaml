@@ -18,11 +18,73 @@ cards:
     title: Resultaten
     show_header_toggle: false
     entities:
-      - entity: input_boolean.resultaat_or
+      - type: custom:multiple-entity-row
+        entity: input_boolean.resultaat_or
         name: OR (A OF B)
-      - entity: input_boolean.resultaat_and
+        show_state: true
+        tap_action:
+          action: none
+        card_mod:
+          style: |
+            .state {
+              color:
+              {% if is_state('input_boolean.resultaat_or', 'on') %}
+                red
+              {% else %}
+                black
+              {% endif %};
+
+            }
+      - type: custom:multiple-entity-row
+        entity: input_boolean.resultaat_and
         name: AND (A EN B)
-      - entity: input_boolean.resultaat_and_or
+        show_state: true
+        tap_action:
+          action: none
+        card_mod:
+          style: |
+            .state {
+              color:
+              {% if is_state('input_boolean.resultaat_and', 'on') %}
+                red
+              {% else %}
+                black
+              {% endif %};
+
+            }
+      - type: custom:multiple-entity-row
+        entity: input_boolean.resultaat_and_or
         name: AND + OR (A EN (B OF C))
-      - entity: input_boolean.resultaat_or_and
+        show_state: true
+        tap_action:
+          action: none
+        card_mod:
+          style: |
+            .state {
+              color:
+              {% if is_state('input_boolean.resultaat_and_or', 'on') %}
+                red
+              {% else %}
+                black
+              {% endif %};
+
+            }
+      - type: custom:multiple-entity-row
+        entity: input_boolean.resultaat_or_and
         name: OR + AND (A OF (B EN C))
+        show_state: true
+        tap_action:
+          action: none
+        card_mod:
+          style: |
+            .state {
+              color:
+              {% if is_state('input_boolean.resultaat_or_and', 'on') %}
+                red
+              {% else %}
+                black
+              {% endif %};
+
+            }
+
+
