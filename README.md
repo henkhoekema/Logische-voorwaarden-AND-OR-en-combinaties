@@ -271,6 +271,10 @@ Hier worden de vier uitkomsten weergegeven.
 Door verschillende combinaties te proberen, wordt direct zichtbaar welke logische voorwaarden waar zijn.
 Er is geen aanvullende hardware of integratie nodig.
 
+## 9. En wat hebben we nu ontdekt?
+
+AND en OR vormen de basis van vrijwel elke slimme automatisering in Home Assistant. Of nu álle voorwaarden moeten kloppen (AND) of slechts eentje voldoende is (OR): door ze slim te combineren, krijg je volledige controle over wanneer een automation start. Met de drie virtuele schakelaars uit dit project heb je nu een simpele, tastbare manier in handen om zelfs de meest complexe logica te begrijpen en te testen.
+
 ## Licentie en gebruiksvoorwaarden
 
 Deze automatisering mag vrij worden gebruikt en aangepast voor eigen gebruik.
@@ -285,8 +289,4 @@ Deze automatisering wordt aangeboden zonder enige garantie. Gebruik en aanpassin
 
 
 
-
-## 9. En wat hebben we nu ontdekt?
-
-AND en OR vormen de basis van vrijwel elke slimme automatisering in Home Assistant. Of nu álle voorwaarden moeten kloppen (AND) of slechts eentje voldoende is (OR): door ze slim te combineren, krijg je volledige controle over wanneer een automation start. Met de drie virtuele schakelaars uit dit project heb je nu een simpele, tastbare manier in handen om zelfs de meest complexe logica te begrijpen en te testen.
 
