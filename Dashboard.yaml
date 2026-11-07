@@ -1,0 +1,28 @@
+type: vertical-stack
+cards:
+  - type: markdown
+    content: |
+      # Logische voorwaarden
+      Bedien de schakelaars en bekijk de resultaten.
+  - type: entities
+    title: Invoerschakelaars
+    show_header_toggle: false
+    entities:
+      - entity: input_boolean.voorwaarde_a
+        name: Voorwaarde A
+      - entity: input_boolean.voorwaarde_b
+        name: Voorwaarde B
+      - entity: input_boolean.voorwaarde_c
+        name: Voorwaarde C
+  - type: entities
+    title: Resultaten
+    show_header_toggle: false
+    entities:
+      - entity: input_boolean.resultaat_or
+        name: OR (A OF B)
+      - entity: input_boolean.resultaat_and
+        name: AND (A EN B)
+      - entity: input_boolean.resultaat_and_or
+        name: AND + OR (A EN (B OF C))
+      - entity: input_boolean.resultaat_or_and
+        name: OR + AND (A OF (B EN C))

@@ -1,0 +1,145 @@
+# Logica: A OF B
+# Minimaal één van de twee voorwaarden moet waar zijn.
+- id: logica_or
+  alias: "OR (OF)"
+  description: "A OF B moet aanstaan."
+  triggers:
+    - trigger: state
+      entity_id:
+        - input_boolean.voorwaarde_a
+        - input_boolean.voorwaarde_b
+        - input_boolean.voorwaarde_c
+  actions:
+    - choose:
+        - conditions:
+            - condition: or
+              conditions:
+                - condition: state
+                  entity_id: input_boolean.voorwaarde_a
+                  state: "on"
+                - condition: state
+                  entity_id: input_boolean.voorwaarde_b
+                  state: "on"
+          sequence:
+            - action: input_boolean.turn_on
+              target:
+                entity_id: input_boolean.resultaat_or
+      default:
+        - action: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.resultaat_or
+  mode: restart
+
+
+# Logica: A EN B
+# Beide voorwaarden moeten waar zijn.
+- id: logica_and
+  alias: "AND (EN)"
+  description: "A EN B moeten allebei aanstaan."
+  triggers:
+    - trigger: state
+      entity_id:
+        - input_boolean.voorwaarde_a
+        - input_boolean.voorwaarde_b
+        - input_boolean.voorwaarde_c
+  actions:
+    - choose:
+        - conditions:
+            - condition: and
+              conditions:
+                - condition: state
+                  entity_id: input_boolean.voorwaarde_a
+                  state: "on"
+                - condition: state
+                  entity_id: input_boolean.voorwaarde_b
+                  state: "on"
+          sequence:
+            - action: input_boolean.turn_on
+              target:
+                entity_id: input_boolean.resultaat_and
+      default:
+        - action: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.resultaat_and
+  mode: restart
+
+
+# Logica: A EN (B OF C)
+# A moet waar zijn EN minimaal B of C moet waar zijn.
+- id: logica_and_or
+  alias: "AND gecombineerd met OR"
+  description: "A EN (B OF C)."
+  triggers:
+    - trigger: state
+      entity_id:
+        - input_boolean.voorwaarde_a
+        - input_boolean.voorwaarde_b
+        - input_boolean.voorwaarde_c
+  actions:
+    - choose:
+        - conditions:
+            - condition: and
+              conditions:
+                - condition: state
+                  entity_id: input_boolean.voorwaarde_a
+                  state: "on"
+                - condition: or
+                  conditions:
+                    - condition: state
+                      entity_id: input_boolean.voorwaarde_b
+                      state: "on"
+                    - condition: state
+                      entity_id: input_boolean.voorwaarde_c
+                      state: "on"
+          sequence:
+            - action: input_boolean.turn_on
+              target:
+                entity_id: input_boolean.resultaat_and_or
+      default:
+        - action: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.resultaat_and_or
+  mode: restart
+
+
+# Logica: A OF (B EN C)
+# A moet waar zijn OF B en C moeten allebei waar zijn.
+- id: logica_or_and
+  alias: "OR gecombineerd met AND"
+  description: "A OF (B EN C)."
+  triggers:
+    - trigger: state
+      entity_id:
+        - input_boolean.voorwaarde_a
+        - input_boolean.voorwaarde_b
+        - input_boolean.voorwaarde_c
+  actions:
+    - choose:
+        - conditions:
+            - condition: or
+              conditions:
+                - condition: state
+                  entity_id: input_boolean.voorwaarde_a
+                  state: "on"
+                - condition: and
+                  conditions:
+                    - condition: state
+                      entity_id: input_boolean.voorwaarde_b
+                      state: "on"
+                    - condition: state
+                      entity_id: input_boolean.voorwaarde_c
+                      state: "on"
+          sequence:
+            - action: input_boolean.turn_on
+              target:
+                entity_id: input_boolean.resultaat_or_and
+      default:
+        - action: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.resultaat_or_and
+  mode: restart
+
+
+
+
+  
